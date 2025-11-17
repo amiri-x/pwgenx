@@ -1,0 +1,7 @@
+[project]
+name = "psw-generator"
+version = "0.1.0"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["psw_generator"]
