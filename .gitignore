@@ -13,3 +13,6 @@ __pycache__/
 
 # pytest 
 .pytest_cache/
+
+# Package matadata
+*.egg-info
