@@ -1,4 +1,4 @@
-# password-generator
+# pwgenx
 
 A simple password generator for secure and customizable passwords.
 
@@ -9,7 +9,7 @@ A simple password generator for secure and customizable passwords.
 --- 
 ## Description
 
-Password-generator is a light-weight Python tool to generate strong secure passwords.
+Pwgenx is a light-weight python tool to generate strong secure passwords.
 You can customize length , include symbols, numbers, and letters to create secure password for your account or your projects.
 
 ---
@@ -19,14 +19,14 @@ You can customize length , include symbols, numbers, and letters to create secur
 - via git:
 Clone the repository and install it in editable mode:
 ```bash
-git clone https://github.com/amiri-x/password-generator.git
-cd password-generator
+git clone https://github.com/amiri-x/pwgenx.git
+cd pwgenx
 pip install -e .
 ```
 
 - via pip(directly):
 ```bash
-pip install git+https://github.com/amiri-x/password-generator.git
+pip install git+https://github.com/amiri-x/pwgenx.git
 ```
 
 
@@ -49,6 +49,6 @@ print("Generated Password:", password)
 pwgenx # password with 8 characters by default
 ```
 ```bash
-pwgenx -h # to see guide and info 
+pwgenx -h # to see full-guide and info 
 ```
 

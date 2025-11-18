@@ -17,7 +17,7 @@ keywords= ["password", "generator","security"]
 dependencies = []
 
 [project.urls]
-Repository = "https://github.com/amiri-x/password-generator.git"
+Repository = "https://github.com/amiri-x/pwgenx.git"
 
 
 
