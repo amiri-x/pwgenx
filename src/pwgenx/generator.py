@@ -37,7 +37,7 @@ def generate(len: int, no_symbols=False, only_digits=False) -> str:
         secrets.choice(DIGITS), 
         secrets.choice(SAFE_SYMBOLS) 
     ]
-    password_alphabet_num=[
+    password_alpha_num=[
         secrets.choice(LETTERS), 
         secrets.choice(DIGITS)
     ]
@@ -46,11 +46,11 @@ def generate(len: int, no_symbols=False, only_digits=False) -> str:
         return "".join(secrets.choice(DIGITS) for _ in range(len))
     
     if no_symbols: 
-        password_alphabet_num +=[secrets.choice(ALPHA_NUM) for _ in range(len-2)]
-        secrets.SystemRandom().shuffle(password_alphabet_num)
-        return "".join(password_alphabet_num)
+        password_alpha_num +=[secrets.choice(ALPHA_NUM) for _ in range(len-2)]
+        secrets.SystemRandom().shuffle(password_alpha_num)
+        return "".join(password_alpha_num)
     else: 
         password_all_chars +=[secrets.choice(CHARS) for _ in range(len-3)]
-        secrets.SystemRandom().shuffle(password_alphabet_num)
+        secrets.SystemRandom().shuffle(password_alpha_num)
         return "".join(password_all_chars)
         

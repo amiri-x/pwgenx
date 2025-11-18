@@ -1,7 +1,7 @@
 
 import pytest
 
-from psw_generator import generator
+from pwgenx import generator
 
 @pytest.mark.unit
 @pytest.mark.parametrize("len", [3, 2, 1, 0, -1, -3, -0, 0.0, -0.4, -128])

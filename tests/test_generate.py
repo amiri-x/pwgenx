@@ -1,12 +1,11 @@
 from operator import indexOf
-import operator
 import subprocess
 import sys
 
 import pytest
 
-from psw_generator import generator
-from psw_generator.utils.get_psw import get_psw
+from pwgenx import generator
+from .utils.get_psw import get_psw
 
 @pytest.mark.integration
 @pytest.mark.parametrize("_",range(3))

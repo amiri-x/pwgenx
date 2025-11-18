@@ -1,7 +1,30 @@
 [project]
-name = "psw-generator"
+name = "pwgenx"
 version = "0.1.0"
+description = "A simple password generator for secure and customizable passwords"
+readme = "README.md"
+requires-python = ">=3.10"
 
-[tool.setuptools]
-package-dir = {"" = "src"}
-packages = ["psw_generator"]
+authors = [
+    {name="Amiri", email="0xamiridev@gmail.com"}
+]
+
+license = {file="LICENSE"}
+
+keywords= ["password", "generator","security"]
+
+
+[project.urls]
+Repository = "https://github.com/amiri-x/password-generator.git"
+
+
+
+[project.scripts]
+pwgenx = "pwgenx.generate:main" # CLI shortcut 
+
+
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
