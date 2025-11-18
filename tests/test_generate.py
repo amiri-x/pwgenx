@@ -5,12 +5,12 @@ import sys
 import pytest
 
 from pwgenx import generator
-from .utils.get_psw import get_psw
+from tests.utils.get_psw import get_psw
 
 @pytest.mark.integration
 @pytest.mark.parametrize("_",range(3))
 def test_no_args(_):
-    result = subprocess.run([sys.executable, "-m", "psw_generator.generate"], 
+    result = subprocess.run([sys.executable, "-m", "pwgenx"], 
                             capture_output=True, text=True)
     assert result.returncode == 0
     prefex= "Password: "
@@ -29,7 +29,7 @@ def test_no_args(_):
 @pytest.mark.integration
 @pytest.mark.parametrize("len",[3, -4, 0, 129, 500, -2309, 2342])
 def test_invalid_len_int(len):
-    result = subprocess.run([sys.executable, "-m", "psw_generator.generate", "-l", str(len)], 
+    result = subprocess.run([sys.executable, "-m", "pwgenx", "-l", str(len)], 
                             capture_output=True, text=True)
     assert result.returncode != 0
     assert f"Invalid length for password: {len}" in result.stdout
@@ -38,7 +38,7 @@ def test_invalid_len_int(len):
 @pytest.mark.integration
 @pytest.mark.parametrize("len",[128.1, 128.0000001, 3.9999999, 0.0, 4.0])
 def test_invalid_len_float(len):
-    result = subprocess.run([sys.executable, "-m", "psw_generator.generate", "-l", str(len)], 
+    result = subprocess.run([sys.executable, "-m", "pwgenx", "-l", str(len)], 
                             capture_output=True, text=True)
     assert result.returncode != 0
     assert f"'{len}' is not a valid integer." in result.stderr
@@ -46,7 +46,7 @@ def test_invalid_len_float(len):
 @pytest.mark.integration
 @pytest.mark.parametrize("len",["", "abc", "\n", "?", "#"])
 def test_invalid_len_str(len):
-    result = subprocess.run([sys.executable, "-m", "psw_generator.generate", "-l", str(len)], 
+    result = subprocess.run([sys.executable, "-m", "pwgenx", "-l", str(len)], 
                             capture_output=True, text=True)
     assert result.returncode != 0
     assert f"'{len}' is not a valid integer." in result.stderr    
@@ -59,7 +59,7 @@ def test_invalid_len_str(len):
 @pytest.mark.integration
 @pytest.mark.parametrize("_",range(3))
 def test_only_digits(_):
-    result = subprocess.run([sys.executable, "-m", "psw_generator.generate", "--only-digits" ],
+    result = subprocess.run([sys.executable, "-m", "pwgenx", "--only-digits" ],
                             capture_output=True, text=True)
     assert result.returncode == 0
     prefex= "Password: "
@@ -75,7 +75,7 @@ def test_only_digits(_):
 @pytest.mark.integration
 @pytest.mark.parametrize("_",range(3))
 def test_no_symbol_only_digits(_):
-    result = subprocess.run([sys.executable, "-m", "psw_generator.generate", "--no-symbol","--only-digits" ],
+    result = subprocess.run([sys.executable, "-m", "pwgenx", "--no-symbol","--only-digits" ],
                             capture_output=True, text=True)
     assert result.returncode == 0
     prefex= "Password: "
@@ -96,7 +96,7 @@ def test_no_symbol_only_digits(_):
 @pytest.mark.integration
 @pytest.mark.parametrize("_",range(3))
 def test_no_symbols(_):
-    result = subprocess.run([sys.executable, "-m", "psw_generator.generate", "--no-symbols" ],
+    result = subprocess.run([sys.executable, "-m", "pwgenx", "--no-symbols" ],
                             capture_output=True, text=True)
     assert result.returncode == 0
     prefex= "Password: "
@@ -114,7 +114,7 @@ def test_no_symbols(_):
 @pytest.mark.integration
 @pytest.mark.parametrize("psw_len",[4, 5, 8, 12, 16, 32, 64, 128])
 def test_best_case(psw_len):
-    result = subprocess.run([sys.executable, "-m", "psw_generator.generate", "-l" , str(psw_len)],
+    result = subprocess.run([sys.executable, "-m", "pwgenx", "-l" , str(psw_len)],
                             capture_output=True, text=True)
     assert result.returncode == 0
     prefex= "Password: "
